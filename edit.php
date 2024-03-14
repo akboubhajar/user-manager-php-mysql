@@ -1,18 +1,13 @@
 <?php
-// Start session
 session_start();
 
-// Check if user is logged in
 if (!isset($_SESSION['user'])) {
-    // Redirect to the login page or handle unauthorized access
     header('Location: login.php');
     exit;
 }
 
-// Retrieve user role from session
 $userRole = isset($_SESSION['user']['role']) ? $_SESSION['user']['role'] : null;
 
-// Now you can use $userRole variable in your code as needed
 
 require_once("./utils/tools.php");
 
@@ -37,7 +32,6 @@ if (!$user) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Handle form submission
     $email = $_POST['email'];
     $password = $_POST['pass'];
     $role = $_POST['role'];

@@ -3,21 +3,16 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
-    $password = md5($_POST['pass']); // Hashing the password
+    $password = md5($_POST['pass']); 
 
-    // Validate user credentials and set session variables upon successful login
-    // You need to implement the logic to validate credentials against your database
-    // For simplicity, let's assume a dummy admin user with email 'admin00@example.com' and password 'pas1'
-    // Note: This is a placeholder, replace it with your actual database query
-    if ($email === 'admin00@example.com' && $password === md5('pas1')) { // Compare hashed password
+    if ($email === 'admin00@example.com' && $password === md5('pas1')) { 
         $_SESSION['user'] = [
             'email' => $email,
             'role' => 'admin'
         ];
         header('Location: index.php');
         exit;
-    } else {
-        // Handle invalid credentials
+    } else {      
         $error = "Invalid email or password";
     }
 }

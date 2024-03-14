@@ -1,16 +1,10 @@
 <?php
-// Start session
 session_start();
 
-// Check if user is logged in
 if (!isset($_SESSION['user'])) {
-    // Redirect to the login page or handle unauthorized access
     header('Location: login.php');
     exit;
 }
-
-// Now we assume the user is logged in
-// You can retrieve user role and other necessary info from the session if needed
 
 require_once("./utils/tools.php");
 
